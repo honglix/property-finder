@@ -1,8 +1,12 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+<div class="alert alert-success" role="alert">
+  <%= notice %>
+</div>
+<% end %>
 
 <h1>Properties</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -32,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Property', new_property_path %>
+<%= link_to 'New Property', new_property_path, class: "btn btn-success" %>

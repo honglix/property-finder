@@ -1,42 +1,30 @@
-<%= form_with(model: property, local: true) do |form| %>
-  <% if property.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+<%= form_with(model: property, local: true, html:{class: "form-auth mt-5 mb-3"}) do |form| %>
 
-      <ul>
-        <% property.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+<%= render 'layouts/validation', property: @property %>
+
+<%= form.label :name %>
+<%= form.text_field :name, class: "form-control" %>
+
+<%= form.label :address %>
+<%= form.text_field :address, class: "form-control" %>
+
+<%= form.label :price %>
+<%= form.number_field :price, class: "form-control" %>
+
+<%= form.label :rooms %>
+<%= form.number_field :rooms, class: "form-control" %>
+
+<%= form.label :bathrooms %>
+<%= form.number_field :bathrooms, class: "form-control" %>
+
+<%= form.label :photo %>
+<%= form.file_field :photo, class: "form-control" %>
+
+  <% if @property.photo.present? %>
+    <%= image_tag @property.photo.thumb.url %>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rooms %>
-    <%= form.number_field :rooms %>
-  </div>
-
-  <div class="field">
-    <%= form.label :bathrooms %>
-    <%= form.number_field :bathrooms %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+  <%= form.submit "Save Property", class: "btn btn-lg btn-block btn-success" %>
+</div>
 <% end %>

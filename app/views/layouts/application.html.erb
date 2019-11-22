@@ -10,9 +10,10 @@
 
   </head>
 
-  <body>
+  <body id="<%= controller_name %>", class= "<%= action_name %>">
     <% if account_signed_in? %>
       <header>
+
         <%= render 'layouts/nav/dashboard' %>
         <div class="container-fluid">
           <div class="row">
