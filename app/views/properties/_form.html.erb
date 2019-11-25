@@ -21,7 +21,7 @@
 <%= form.file_field :photo, class: "form-control" %>
 
   <% if @property.photo.present? %>
-    <%= image_tag @property.photo.thumb.url %>
+    <%= image_tag @property.photo.thumb.url, class: "mt-4 mb-4"%>
   <% end %>
 
 <div class="actions">
